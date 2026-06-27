@@ -1,0 +1,75 @@
+---
+const navLinks = [
+  { text: '首页', href: '/web/' },
+  { text: '关于我', href: '/web/about/' },
+  { text: '博客', href: '/web/blog/' },
+]
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/web/" class="logo">我的个人站点</a>
+    <nav class="nav">
+      {navLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.text}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+    text-decoration: none;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-link {
+    color: #475569;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #3b82f6;
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      gap: 20px;
+    }
+    .header-inner {
+      padding: 0 16px;
+    }
+  }
+</style>
