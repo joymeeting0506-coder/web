@@ -1,40 +1,47 @@
 name: Deploy Astro to GitHub Pages
+
 on:
   push:
-    branches: [main] # 你的主分支是main，不用改
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
+
       - name: 安装 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+
       - name: 安装 pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-      - name: 安装依赖
+        run: npm install -g pnpm@9
+
+      - name: 安装项目依赖
         run: pnpm install
-      - name: 打包Astro静态文件
+
+      - name: 打包 Astro 静态文件
         run: pnpm build
-      - name: 上传打包产物
+
+      - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 部署到 Pages
+      - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
