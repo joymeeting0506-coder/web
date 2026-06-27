@@ -1,0 +1,172 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于我 | 我的个人站点</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: #f5f7fa;
+        color: #2c3e50;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        line-height: 1.8;
+      }
+
+      main {
+        flex: 1;
+        padding: 60px 20px;
+      }
+
+      /* 正文容器：固定宽度居中，长文阅读黄金宽度 */
+      .article-container {
+        max-width: 760px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 60px 64px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      /* 标题层级 */
+      .article-title {
+        font-size: 34px;
+        font-weight: 600;
+        color: #1a202c;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+
+      .article-subtitle {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 15px;
+        margin-bottom: 48px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1e293b;
+        margin: 48px 0 16px;
+        scroll-margin-top: 80px;
+      }
+
+      h3 {
+        font-size: 19px;
+        font-weight: 600;
+        color: #334155;
+        margin: 32px 0 12px;
+      }
+
+      /* 正文段落 */
+      p {
+        color: #475569;
+        margin-bottom: 16px;
+        font-size: 16px;
+      }
+
+      /* 列表 */
+      ul, ol {
+        margin: 16px 0 16px 24px;
+        color: #475569;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* 引用块 */
+      blockquote {
+        border-left: 4px solid #3b82f6;
+        background: #eff6ff;
+        padding: 16px 20px;
+        margin: 24px 0;
+        border-radius: 4px;
+        color: #1e40af;
+      }
+
+      blockquote p {
+        margin-bottom: 0;
+        color: inherit;
+      }
+
+      /* 分割线 */
+      hr {
+        border: none;
+        border-top: 1px solid #e2e8f0;
+        margin: 40px 0;
+      }
+
+      /* 移动端适配 */
+      @media (max-width: 640px) {
+        .article-container {
+          padding: 32px 24px;
+        }
+        .article-title {
+          font-size: 26px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="article-container">
+        <!-- 页面大标题 -->
+        <h1 class="article-title">关于我</h1>
+        <p class="article-subtitle">最后更新于 2026.06</p>
+
+        <!-- 章节1 -->
+        <h2 id="section-1">章节一标题</h2>
+        <p>这里填写段落内容。</p>
+        <p>可以写多个段落，自动保持合适的行高和间距。</p>
+
+        <!-- 章节2 -->
+        <h2 id="section-2">章节二标题</h2>
+        <h3>二级小标题</h3>
+        <p>段落内容占位</p>
+        
+        <ul>
+          <li>列表项1</li>
+          <li>列表项2</li>
+          <li>列表项3</li>
+        </ul>
+
+        <!-- 引用块示例 -->
+        <blockquote>
+          <p>这里可以放一句引言、座右铭或者重点强调的内容。</p>
+        </blockquote>
+
+        <hr />
+
+        <!-- 可继续复制 h2 + p 的结构添加更多章节 -->
+        <h2 id="section-3">章节三标题</h2>
+        <p>内容占位</p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
